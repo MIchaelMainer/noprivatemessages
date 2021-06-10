@@ -9,6 +9,7 @@
     <meta name="description" content="Leave the private messages behind, ask questions in the open.">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://unpkg.com/launchdarkly-js-client-sdk@2"></script>
 </head>
 
 <body>
@@ -61,5 +62,31 @@
 		<p>&copy; <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
 		<p>Propose changes at <a href="https://github.com/MIchaelMainer/noprivatemessages" target="_blank" rel="nofollow"><img src="GitHub-Mark-32px.png"/></a></p>
 	</footer>
+	<script>
+  var user = {
+    firstName: 'Bob',
+    lastName: 'Loblaw',
+    key: 'UNIQUE IDENTIFIER',
+    custom: {
+      groups: 'beta_testers'
+    }
+  };
+
+  var div = document.createElement('div');
+  document.body.appendChild(div);
+
+  div.appendChild(document.createTextNode('Initializing...'));
+
+  var ldclient = LDClient.initialize('60c1c14171b4720c8812884b', user);
+
+  function render() {
+    var shouldShow = ldclient.variation('p-on', false);
+    var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
+    div.replaceChild(document.createTextNode(label), div.firstChild);
+  }
+
+  ldclient.on('ready', render);
+  ldclient.on('change', render);
+</script>
 </body>
 </html>
