@@ -60,7 +60,7 @@
 	</section>
 	<footer id="footer">
 		<p>&copy; <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
-		<p>Propose changes at <a href="https://github.com/MIchaelMainer/noprivatemessages" target="_blank" rel="nofollow"><img src="GitHub-Mark-32px.png"/></a></p>
+		<p id="proposeChange">Propose changes at <a href="https://github.com/MIchaelMainer/noprivatemessages" target="_blank" rel="nofollow"><img src="GitHub-Mark-32px.png"/></a></p>
 	</footer>
 	<script>
   var user = {
@@ -72,6 +72,8 @@
     }
   };
 
+  var proposeChange = document.getElementById("proposeChange");
+		
   var div = document.createElement('div');
   document.body.appendChild(div);
 
@@ -81,6 +83,8 @@
 
   function render() {
     var shouldShow = ldclient.variation('p-on', false);
+    shouldShow ? proposeChange.style.display = "block" : proposeChange.style.display = "none";
+	  
     var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
     div.replaceChild(document.createTextNode(label), div.firstChild);
   }
