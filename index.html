@@ -64,8 +64,13 @@
 	</footer>
 	<script>
 
+		
+  var user = {
+    key: '1'
+  };
+		
   var proposeChange = document.getElementById("proposeChange");
-  var ldclient = LDClient.initialize('60c1c14171b4720c8812884b');
+  var ldclient = LDClient.initialize('60c1c14171b4720c8812884b', user);
 
   function render() {
     var shouldShow = ldclient.variation('p-on', false);
