@@ -59,7 +59,7 @@
 		</aside> -->
 	</section>
 	<footer id="footer">
-		<p>&copy; <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+		<p id="test">&copy; <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
 		<p id="proposeChange">Propose changes at <a href="https://github.com/MIchaelMainer/noprivatemessages" target="_blank" rel="nofollow"><img src="GitHub-Mark-32px.png"/></a></p>
 	</footer>
 	<script>
@@ -75,6 +75,9 @@
   function render() {
     var shouldShow = ldclient.variation('p-on', false);
     shouldShow ? proposeChange.style.display = "block" : proposeChange.style.display = "none";
+	  
+    var shouldShowTest = ldclient.variation('test', false);	  
+    shouldShowTest ? proposeChange.style.display = "block" : proposeChange.style.display = "none";
   }
 
   ldclient.on('ready', render);
