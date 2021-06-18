@@ -71,12 +71,15 @@
 		
   var proposeChange = document.getElementById("proposeChange");
   var ldclient = LDClient.initialize('60c1c14171b4720c8812884b', user);
+  var ldclient2 = LDClient.initialize('60c1c14171b4720c8812884a', user);
+		
+		
 
   function render() {
     var shouldShow = ldclient.variation('p-on', false);
     shouldShow ? proposeChange.style.display = "block" : proposeChange.style.display = "none";
 	  
-    var shouldShowTest = ldclient.variation('test', false);	  
+    var shouldShowTest = ldclient2.variation('test', false);	  
     shouldShowTest ? proposeChange.style.display = "block" : proposeChange.style.display = "none";
   }
 
